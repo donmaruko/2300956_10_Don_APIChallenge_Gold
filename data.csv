@@ -1,0 +1,11 @@
+ID,Name,Age,Gender,Occupation,Salary,Education,Experience,Location,Status
+1,John,25,Male,Engineer,75000,Bachelor's Degree,3 years,New York,Married
+2,Jane,30,Female,Scientist,90000,Master's Degree,5 years,San Francisco,Single
+3,Bob,40,Male,Lawyer,120000,Juris Doctor,10 years,Los Angeles,Married
+4,Alice,35,Female,Doctor,150000,Doctor of Medicine,8 years,Chicago,Single
+5,Mark,28,Male,Teacher,50000,Bachelor's Degree,2 years,Boston,Married
+6,Sarah,32,Female,Accountant,80000,Bachelor's Degree,6 years,Seattle,Single
+7,David,45,Male,CEO,500000,Master's Degree,20 years,New York,Married
+8,Emily,27,Female,Marketing Manager,70000,Bachelor's Degree,4 years,San Francisco,Single
+9,Michael,38,Male,Sales Manager,100000,Bachelor's Degree,12 years,Los Angeles,Married
+10,Olivia,29,Female,Software Engineer,95000,Master's Degree,3 years,Chicago,Single
