@@ -1,0 +1,347 @@
+swagger: "2.0"
+info:
+  title: My API
+  version: 1.0.0
+paths:
+  /cleanse_text:
+    post:
+      tags:
+        - Text
+      summary: Cleanse text by replacing non-alphanumeric characters with spaces
+      consumes:
+        - multipart/form-data
+      parameters:
+        - name: text
+          in: formData
+          type: string
+          required: true
+          description: Text to be cleansed
+      responses:
+        200:
+          description: Cleansed text
+          schema:
+            type: object
+            properties:
+              cleansed_text:
+                type: string
+  /cleanse_text_file:
+    post:
+      tags:
+        - Text
+      summary: Cleanse text from uploaded text file by replacing non-alphanumeric characters with spaces
+      consumes:
+        - multipart/form-data
+      parameters:
+        - name: file
+          in: formData
+          type: file
+          required: true
+          description: Text file to be uploaded and cleansed
+      responses:
+        200:
+          description: Cleansed text from the uploaded file
+          schema:
+            type: object
+            properties:
+              cleansed_text:
+                type: string
+  /view_cleansed_text:
+    get:
+      tags:
+        - Text
+      summary: View cleansed text from the database
+      responses:
+        200:
+          description: Successfully retrieved data
+          schema:
+            type: object
+            properties:
+              cleansed_text:
+                type: string
+      operationId: viewCleansedText
+  /multiply_numbers:
+    post:
+      tags:
+        - Math
+      summary: Multiply two numbers
+      consumes:
+        - multipart/form-data
+      parameters:
+        - name: num1
+          in: formData
+          type: number
+          required: true
+          description: First number
+        - name: num2
+          in: formData
+          type: number
+          required: true
+          description: Second number
+      responses:
+        200:
+          description: Result of multiplication
+          schema:
+            type: object
+            properties:
+              result:
+                type: number
+  /reverse_text:
+    post:
+      tags:
+        - Text
+      summary: Reverse a text
+      consumes:
+        - multipart/form-data
+      parameters:
+        - name: text
+          in: formData
+          type: string
+          required: true
+          description: Text to be reversed
+      responses:
+        200:
+          description: Reversed text
+          schema:
+            type: object
+            properties:
+              reversed_text:
+                type: string
+  /count_words:
+    post:
+      tags:
+        - Text
+      summary: Count the number of words in a text
+      consumes:
+        - multipart/form-data
+      parameters:
+        - name: text
+          in: formData
+          type: string
+          required: true
+          description: Text to count the words in
+      responses:
+        200:
+          description: Number of words in the text
+          schema:
+            type: object
+            properties:
+              word_count:
+                type: integer
+  /git_pull:
+    post:
+      tags:
+        - Git
+      summary: Perform Git pull
+      responses:
+        200:
+          description: Git pull successful
+        500:
+          description: Git pull failed
+  /git_push:
+    post:
+      tags:
+        - Git
+      summary: Perform Git push
+      responses:
+        200:
+          description: Git push successful
+        500:
+          description: Git push failed
+  /analyze_data:
+    post:
+      tags:
+        - Data Input
+      summary: Perform data analysis on a CSV file
+      consumes:
+        - multipart/form-data
+      parameters:
+        - name: file
+          in: formData
+          type: file
+          required: true
+          description: CSV file to be analyzed
+        - name: salary_filter
+          in: formData
+          type: integer
+          required: false
+          description: Minimum salary
+        - name: age_filter
+          in: formData
+          type: integer
+          required: false
+          description: Older than
+        - name: occupations_filter
+          in: formData
+          type: array
+          items:
+            type: string
+          required: false
+          description: List of selected occupations
+      responses:
+        200:
+          description: Data analysis result
+          schema:
+            type: object
+            properties:
+              data_analysis_result:
+                type: array
+                items:
+                  type: object
+              selected_columns:
+                type: array
+                items:
+                  type: string
+        400:
+          description: Invalid request or file format
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+  /visualize_data:
+    post:
+      tags:
+        - Data Input
+      summary: Create data visualization from a CSV file
+      consumes:
+        - multipart/form-data
+      parameters:
+        - name: file
+          in: formData
+          type: file
+          required: true
+          description: CSV file for data visualization
+        - name: column
+          in: formData
+          type: string
+          required: true
+          description: Name of the column to create visualization
+      responses:
+        200:
+          description: Image of the data visualization
+          schema:
+            type: file
+  /generate_pie_chart:
+    post:
+      tags:
+        - Data Input
+      summary: Generate a pie chart from a CSV file
+      consumes:
+        - multipart/form-data
+      parameters:
+        - name: file
+          in: formData
+          type: file
+          required: true
+          description: CSV file for generating the pie chart
+        - name: column
+          in: formData
+          type: string
+          required: true
+          description: Column name for the pie chart
+      responses:
+        200:
+          description: Image of the pie chart
+          schema:
+            type: file
+  /generate_word_cloud:
+    post:
+      tags:
+        - Data Input
+      summary: Generate a word cloud from a CSV file
+      consumes:
+        - multipart/form-data
+      parameters:
+        - name: file
+          in: formData
+          type: file
+          required: true
+          description: CSV file for generating the word cloud
+      responses:
+        200:
+          description: Image of the word cloud
+          schema:
+            type: file
+  /frequency_word_cloud:
+    post:
+      tags:
+        - Data Input
+      summary: Generate a word cloud based on the frequency of words in a text file
+      consumes:
+        - multipart/form-data
+      produces:
+        - image/png
+      parameters:
+        - name: file
+          in: formData
+          type: file
+          required: true
+          description: Text file to generate the word cloud from
+      responses:
+        200:
+          description: OK
+          schema:
+            type: file
+        400:
+          description: Bad Request
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+  /visualize_skewness:
+    post:
+      tags:
+        - Data Visualization
+      summary: Visualize skewness of a numeric column in a CSV file
+      consumes:
+        - multipart/form-data
+      parameters:
+        - name: file
+          in: formData
+          type: file
+          required: true
+          description: CSV file for data visualization
+        - name: column_name
+          in: formData
+          type: string
+          required: true
+          description: Name of the numeric column
+      responses:
+        200:
+          description: Image of the skewness visualization
+          schema:
+            type: file
+  /visualize_kurtosis:
+    post:
+      tags:
+        - Data Visualization
+      summary: Visualize kurtosis of a numeric column in a CSV file
+      consumes:
+        - multipart/form-data
+      parameters:
+        - name: file
+          in: formData
+          type: file
+          required: true
+          description: CSV file for data visualization
+        - name: column_name
+          in: formData
+          type: string
+          required: true
+          description: Name of the numeric column
+      responses:
+        200:
+          description: Image of the kurtosis visualization
+          schema:
+            type: file
+  /delete_db:
+    post:
+      tags:
+        - Database
+      summary: Delete the SQLite database file
+      responses:
+        200:
+          description: Database file deleted successfully
+        500:
+          description: Failed to delete the database file
