@@ -2,6 +2,13 @@
 
 This Flask application provides various data analysis and text manipulation functionalities through a RESTful API. It includes operations for cleansing text, performing statistical calculations, visualizing data, and more.
 
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Endpoints](#endpoints)
+- [Contributing](#contributing)
+
 ## Installation
 
 1. Clone this repository to your local machine:
@@ -21,7 +28,7 @@ python API.py
 
 4. The application will be accessible at `http://localhost:8000`.
 
-## API Endpoints
+## Endpoints
 
 The API endpoints provided by this application are documented using Swagger. You can access the Swagger documentation by visiting `http://localhost:8000/apidocs/` while the application is running.
 
