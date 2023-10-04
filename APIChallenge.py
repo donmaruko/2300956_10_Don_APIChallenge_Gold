@@ -12,8 +12,6 @@ import matplotlib, matplotlib.pyplot as plt
 import seaborn as sns
 import git
 
-# Kekuatan Flask: Edisi Data
-
 matplotlib.use('Agg')
 app = Flask(__name__)
 swagger = Swagger(app, template_file='swagger.yaml')
